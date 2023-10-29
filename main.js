@@ -86,7 +86,7 @@ function win() {
 function rejected() {
     rejectedCount++;
 
-    if (rejectedCount > 3) {
+    if (rejectedCount >= 3) {
         helperText.innerText = currentWord;
     }
 
