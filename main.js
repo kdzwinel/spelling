@@ -54,6 +54,10 @@ function speak(text, voice = readVoice) {
     speechSynthesis.speak(utterance);
 }
 
+function updateCounter() {
+    counterText.innerText = `Words left: ${wordsAvailable.length}`;
+}
+
 function approved() {
     if (wordsAvailable.length > 0) {
         speak('o', bubbleVoice);
@@ -61,6 +65,9 @@ function approved() {
     } else {
         win();
     }
+
+    updateCounter();
+    spellingInput.value = '';
 }
 
 function win() {
@@ -76,10 +83,6 @@ function rejected() {
 }
 
 function loadWord() {
-    counterText.innerText = `Words left: ${wordsAvailable.length}`;
-
-    spellingInput.value = '';
-
     currentWord = wordsAvailable.pop();
 
     console.log('word: ', currentWord);
@@ -123,6 +126,7 @@ function start(set) {
     spellingInput.focus();
 
     loadWord();
+    updateCounter();
 }
 
 start(words.week8);
