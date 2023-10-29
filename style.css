@@ -1,0 +1,34 @@
+.wrong {
+    animation: flashred 300ms ease-in forwards;
+}
+
+#line {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#counter {
+    text-align: center;
+}
+
+button {
+    height: 50px;
+    margin: 0 10px;
+}
+
+#spelling {
+    height: 50px;
+    width: 400px;
+    font-size: 40px;
+    border: solid black 3px;
+}
+
+@keyframes flashred {
+    0% {
+        border-color: black;
+    }
+    100% {
+        border-color: red;
+    }
+}
