@@ -22,6 +22,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 100vw;
 }
 
 #counter {
@@ -35,7 +36,8 @@ button {
 
 #spelling {
     height: 50px;
-    width: 400px;
+    flex-grow: 1;
+    max-width: 300px;
     font-size: 40px;
     border: solid black 3px;
 }
