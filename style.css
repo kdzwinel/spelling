@@ -1,5 +1,6 @@
 body {
     font-size: 18px;
+    margin: 0;
 }
 
 .wrong {
@@ -20,23 +21,30 @@ body {
 
 #line {
     display: flex;
-    align-items: center;
+    align-items: stretch;
     justify-content: center;
     width: 100vw;
+    height: 50px;
+    gap: 5px;
+}
+
+#line > * {
+    flex-basis: auto;
+}
+
+#line > button {
+    flex-grow: 1;
+    min-width: 25px;
+    max-width: 50px;
 }
 
 #counter {
     text-align: center;
 }
 
-button {
-    height: 50px;
-    margin: 0 10px;
-}
-
 #spelling {
-    height: 50px;
-    flex-grow: 1;
+    flex-grow: 3;
+    min-width: 100px;
     max-width: 300px;
     font-size: 40px;
     border: solid black 3px;
