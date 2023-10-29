@@ -6,6 +6,12 @@ body {
     animation: flashred 300ms ease-in forwards;
 }
 
+#helper {
+    text-align: center;
+    font-size: 30px;
+    color: red;
+}
+
 #history {
     text-align: center;
     list-style: none;

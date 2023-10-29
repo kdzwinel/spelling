@@ -3,6 +3,7 @@ const submitBtn = document.getElementById('submit');
 const playSoundBtn = document.getElementById('play-sound');
 const counterText = document.getElementById('counter');
 const historyList = document.getElementById('history');
+const helperText = document.getElementById('helper');
 
 const words = {
     months: [
@@ -47,8 +48,10 @@ console.log('Voice: ', readVoice);
 
 let wordsAvailable = [];
 let currentWord = null;
+let rejectedCount = 0;
 
 function speak(text, voice = readVoice) {
+    //speechSynthesis.cancel();
     const utterance = new SpeechSynthesisUtterance(text);
     utterance.voice = voice;
     speechSynthesis.speak(utterance);
@@ -59,8 +62,11 @@ function updateCounter() {
 }
 
 function approved() {
+    rejectedCount = 0;
+    helperText.innerText = '';
+
     if (wordsAvailable.length > 0) {
-        speak('o', bubbleVoice);
+        speak('Great!', bubbleVoice);
         loadWord();
     } else {
         win();
@@ -78,6 +84,12 @@ function win() {
 }
 
 function rejected() {
+    rejectedCount++;
+
+    if (rejectedCount > 3) {
+        helperText.innerText = currentWord;
+    }
+
     spellingInput.classList.add('wrong');
     speak(`Try again. The word is: ${currentWord}.`);
 }
