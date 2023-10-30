@@ -4,6 +4,9 @@ const playSoundBtn = document.getElementById('play-sound');
 const counterText = document.getElementById('counter');
 const historyList = document.getElementById('history');
 const helperText = document.getElementById('helper');
+const startBtn = document.getElementById('start');
+const gameScreen = document.getElementById('game-screen');
+const startScreen = document.getElementById('start-screen');
 
 const words = {
     months: [
@@ -41,16 +44,28 @@ const words = {
     test: ['apple', 'cat']
 };
 
-const readVoice = speechSynthesis.getVoices().filter(v => v.name === 'Samantha')[0];
-const bubbleVoice = speechSynthesis.getVoices().filter(v => v.name === 'Bubbles')[0];
-const superstarVoice = speechSynthesis.getVoices().filter(v => v.name === 'Cellos')[0];//Cellos, Organ, Superstar
-console.log('Voice: ', readVoice);
+function getVoice(name) {
+    let voice = speechSynthesis.getVoices().filter(v => v.name === name);
+
+    if (voice.length === 0) {
+        voice = speechSynthesis.getVoices().filter(v => v.lang === 'en-US');
+    }
+
+    readVoice = voice[0];
+    console.log('Voice: ', readVoice);
+
+    return readVoice;
+}
 
 let wordsAvailable = [];
 let currentWord = null;
 let rejectedCount = 0;
 
-function speak(text, voice = readVoice) {
+function speak(text, voice) {
+    if (!voice) {
+        voice = getVoice('Samantha');
+    }
+
     //speechSynthesis.cancel();
     const utterance = new SpeechSynthesisUtterance(text);
     utterance.voice = voice;
@@ -66,7 +81,7 @@ function approved() {
     helperText.innerText = '';
 
     if (wordsAvailable.length > 0) {
-        speak('Great!', bubbleVoice);
+        speak('Good!', getVoice('Bubbles'));
         loadWord();
     } else {
         win();
@@ -77,7 +92,7 @@ function approved() {
 }
 
 function win() {
-    speak('Good work Ala!', superstarVoice);
+    speak('Good work Ala!', getVoice('Cellos'));
     submitBtn.setAttribute('disabled', 'disabled');
     playSoundBtn.setAttribute('disabled', 'disabled');
     spellingInput.setAttribute('disabled', 'disabled');
@@ -141,4 +156,15 @@ function start(set) {
     updateCounter();
 }
 
-start(words.week8);
+window.onbeforeunload = () => {
+    if (wordsAvailable.length > 0) {
+        speak('Are you sure? All progress will be lost.');
+        return 'Are you sure? All progress will be lost.';
+    }
+};
+
+startBtn.addEventListener('click', () => {
+    gameScreen.classList.remove('hidden');
+    startScreen.classList.add('hidden');
+    start(words.week8);
+});

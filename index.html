@@ -8,14 +8,19 @@
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <p id="counter"></p>
-    <div id="line">
-        <button id="play-sound">🎧</button>
-        <input type="text" id="spelling" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
-        <button id="submit">👍</button>
+    <div id="start-screen" class="screen">
+        <button id="start">Start</button>
     </div>
-    <p id='helper'></p>
-    <ul id="history">
-    </ul>
+    <div id="game-screen" class="screen hidden">
+        <p id="counter"></p>
+        <div id="line">
+            <button id="play-sound">🎧</button>
+            <input type="text" id="spelling" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+            <button id="submit">👍</button>
+        </div>
+        <p id='helper'></p>
+        <ul id="history">
+        </ul>
+    </div>
 </body>
 </html>

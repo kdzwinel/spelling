@@ -58,3 +58,19 @@ body {
         border-color: red;
     }
 }
+
+.screen.hidden, #start-screen.hidden {
+    display: none;
+}
+
+#start-screen {
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#start-screen > button {
+    font-size: 50px;
+    margin: 10px;
+}
