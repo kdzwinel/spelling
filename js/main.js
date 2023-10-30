@@ -8,69 +8,9 @@ const startBtn = document.getElementById('start');
 const gameScreen = document.getElementById('game-screen');
 const startScreen = document.getElementById('start-screen');
 
-const words = {
-    months: [
-        'january',
-        'february',
-        'march',
-        'april',
-        'may',
-        'june',
-        'july',
-        'august',
-        'september',
-        'october',
-        'november',
-        'december'
-    ],
-    week8: [
-        'necklace',
-        'noun',
-        'brave',
-        'happy',
-        'can',
-        'could',
-        'couldn\'t',
-        'sad',
-        'proud',
-        'parents',
-        'memory',
-        'memories',
-        'teddy bear',
-        'beach',
-        'peak',
-        'picnic',
-    ],
-    test: ['apple', 'cat']
-};
-
-function getVoice(name) {
-    let voice = speechSynthesis.getVoices().filter(v => v.name === name);
-
-    if (voice.length === 0) {
-        voice = speechSynthesis.getVoices().filter(v => v.lang === 'en-US');
-    }
-
-    readVoice = voice[0];
-    console.log('Voice: ', readVoice);
-
-    return readVoice;
-}
-
 let wordsAvailable = [];
 let currentWord = null;
 let rejectedCount = 0;
-
-function speak(text, voice) {
-    if (!voice) {
-        voice = getVoice('Samantha');
-    }
-
-    //speechSynthesis.cancel();
-    const utterance = new SpeechSynthesisUtterance(text);
-    utterance.voice = voice;
-    speechSynthesis.speak(utterance);
-}
 
 function updateCounter() {
     counterText.innerText = `Words left: ${wordsAvailable.length}`;
@@ -81,7 +21,7 @@ function approved() {
     helperText.innerText = '';
 
     if (wordsAvailable.length > 0) {
-        speak('Good!', getVoice('Bubbles'));
+        speak('Good!', 'correct');
         loadWord();
     } else {
         win();
@@ -92,7 +32,7 @@ function approved() {
 }
 
 function win() {
-    speak('Good work Ala!', getVoice('Cellos'));
+    speak('Good work Ala!', 'finish');
     submitBtn.setAttribute('disabled', 'disabled');
     playSoundBtn.setAttribute('disabled', 'disabled');
     spellingInput.setAttribute('disabled', 'disabled');
@@ -146,9 +86,7 @@ spellingInput.addEventListener('keydown', (e) => {
 playSoundBtn.addEventListener('click', () => speak(currentWord));
 
 function start(set) {
-    wordsAvailable = [];
-    set.forEach(i => wordsAvailable.push(i));
-    wordsAvailable = wordsAvailable.sort((a,b) => Math.random() > 0.5);
+    wordsAvailable = createSet(set);
 
     spellingInput.focus();
 
@@ -166,5 +104,5 @@ window.onbeforeunload = () => {
 startBtn.addEventListener('click', () => {
     gameScreen.classList.remove('hidden');
     startScreen.classList.add('hidden');
-    start(words.week8);
+    start('week8');
 });
