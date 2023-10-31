@@ -40,8 +40,17 @@ function createSet(setName, random=true) {
     words[setName].forEach(i => set.push(i));
     
     if (random) {
-        set = set.sort(() => Math.random() > 0.5);
+        set = set.sort(() => Math.random() - 0.5);
     }
 
     return set;
+}
+
+function getSets() {
+    const setNames = Object.keys(words);
+
+    return setNames.map(name => ({
+        name,
+        size: words[name].length
+    }));
 }

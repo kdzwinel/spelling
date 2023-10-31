@@ -7,6 +7,7 @@ const helperText = document.getElementById('helper');
 const startBtn = document.getElementById('start');
 const gameScreen = document.getElementById('game-screen');
 const startScreen = document.getElementById('start-screen');
+const setPicker = document.getElementById('pick-set');
 
 let wordsAvailable = [];
 let currentWord = null;
@@ -85,8 +86,8 @@ spellingInput.addEventListener('keydown', (e) => {
 
 playSoundBtn.addEventListener('click', () => speak(currentWord));
 
-function start(set) {
-    wordsAvailable = createSet(set);
+function start() {
+    wordsAvailable = createSet(setPicker.value);
 
     spellingInput.focus();
 
@@ -104,5 +105,13 @@ window.onbeforeunload = () => {
 startBtn.addEventListener('click', () => {
     gameScreen.classList.remove('hidden');
     startScreen.classList.add('hidden');
-    start('week8');
+    start();
+});
+
+getSets().forEach(set => {
+    const option = document.createElement('option');
+    option.value = set.name;
+    option.innerText = `${set.name} (${set.size} words)`;
+
+    setPicker.prepend(option);
 });
