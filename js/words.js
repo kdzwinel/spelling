@@ -1,4 +1,5 @@
 const words = {
+    test: ['apple', 'cat'],
     months: [
         'january',
         'february',
@@ -31,7 +32,23 @@ const words = {
         'peak',
         'picnic',
     ],
-    test: ['apple', 'cat']
+    week9: [
+        'dissolving',
+        'soluble',
+        'insoluble',
+        'buy',
+        'change',
+        'desert',
+        'dessert',
+        'sandy',
+        'rocky',
+        'antarctica',
+        'degrees',
+        'largest',
+        'tallest',
+        'drier',
+        'colder'
+    ]
 };
 
 function createSet(setName, random=true) {
