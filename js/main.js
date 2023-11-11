@@ -44,6 +44,8 @@ function rejected() {
 
     if (rejectedCount >= 3) {
         helperText.innerText = currentWord;
+    } else {
+
     }
 
     spellingInput.classList.add('wrong');
@@ -60,8 +62,9 @@ function loadWord() {
 
 function submitWord() {
     let text = '';
+    const userInput = spellingInput.value.trim().toLowerCase();
 
-    if (spellingInput.value.toLowerCase() === currentWord.toLowerCase()) {
+    if (userInput === currentWord.toLowerCase()) {
         text = `${spellingInput.value} ✅`;
         approved();
     } else {
