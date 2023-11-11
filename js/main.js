@@ -39,13 +39,16 @@ function win() {
     spellingInput.setAttribute('disabled', 'disabled');
 }
 
-function rejected() {
+function rejected(input, correct) {
     rejectedCount++;
 
     if (rejectedCount >= 3) {
-        helperText.innerText = currentWord;
+        helperText.innerText = `correct spelling is: "${currentWord}"`;
     } else {
-
+        helperText.innerHTML = '';
+        input.split('').forEach((letter, idx) => {
+            helperText.innerHTML += (letter === correct[idx]) ? letter : `<u>${letter}</u>`;
+        });
     }
 
     spellingInput.classList.add('wrong');
@@ -63,13 +66,14 @@ function loadWord() {
 function submitWord() {
     let text = '';
     const userInput = spellingInput.value.trim().toLowerCase();
+    const correctValue = currentWord.toLowerCase();
 
-    if (userInput === currentWord.toLowerCase()) {
+    if (userInput === correctValue) {
         text = `${spellingInput.value} ✅`;
         approved();
     } else {
         text = `${spellingInput.value} ❌`;
-        rejected();
+        rejected(userInput, currentWord);
     }
 
     const li = document.createElement('li');
