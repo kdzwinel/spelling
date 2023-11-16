@@ -48,14 +48,31 @@ const words = {
         'tallest',
         'drier',
         'colder'
+    ],
+    week10: [
+        'Oasis',
+        'Slowly',
+        'Funny',
+        'Pretty',
+        'Honest',
+        'Brave',
+        'Strong',
+        'Wise',
+        'Kind',
+        'Prism',
+        'Edges',
+        'Faces',
+        'Vertices',
+        'Shapes',
+        'Triangular'
     ]
 };
 
-function createSet(setName, random=true) {
+function createSet(setName, random = true) {
     let set = [];
 
     words[setName].forEach(i => set.push(i));
-    
+
     if (random) {
         set = set.sort(() => Math.random() - 0.5);
     }

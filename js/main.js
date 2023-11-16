@@ -1,23 +1,48 @@
+const startScreen = document.getElementById('start-screen');
+const startBtn = document.getElementById('start');
+const setPicker = document.getElementById('pick-set');
+
+const gameScreen = document.getElementById('game-screen');
 const spellingInput = document.getElementById('spelling');
 const submitBtn = document.getElementById('submit');
 const playSoundBtn = document.getElementById('play-sound');
 const counterText = document.getElementById('counter');
 const historyList = document.getElementById('history');
 const helperText = document.getElementById('helper');
-const startBtn = document.getElementById('start');
-const gameScreen = document.getElementById('game-screen');
-const startScreen = document.getElementById('start-screen');
-const setPicker = document.getElementById('pick-set');
+
+const endScreen = document.getElementById('end-screen');
+const endScreenImage = document.getElementById('end-image');
+const endStats = document.getElementById('end-stats');
+
 
 let wordsAvailable = [];
 let currentWord = null;
 let rejectedCount = 0;
+const stats = [];
+
+function changeScreen(name) {
+    const screenMap = {
+        start: startScreen,
+        game: gameScreen,
+        end: endScreen
+    };
+
+    Object.keys(screenMap).forEach(key => {
+        if (key === name) {
+            screenMap[key].classList.remove('hidden');
+        } else {
+            screenMap[key].classList.add('hidden');
+        }
+    })
+}
 
 function updateCounter() {
     counterText.innerText = `Words left: ${wordsAvailable.length}`;
 }
 
 function approved() {
+    stats.push({word: currentWord, attempts: 1 + rejectedCount});
+
     rejectedCount = 0;
     helperText.innerText = '';
 
@@ -34,9 +59,33 @@ function approved() {
 
 function win() {
     speak('Good work Ala!', 'finish');
-    submitBtn.setAttribute('disabled', 'disabled');
-    playSoundBtn.setAttribute('disabled', 'disabled');
-    spellingInput.setAttribute('disabled', 'disabled');
+    changeScreen('end');
+
+    let winWords1 = ['petting', 'cuddling', 'cute', 'funny', 'interesting', 'adorable', 'small', 'baby', 'friendly'].sort(() => Math.random() - 0.5);
+    let winWords2 = ['pet', 'animal', 'cat', 'bird', 'dog', 'unicorn'].sort(() => Math.random() - 0.5);
+
+    fetch(`https://api.giphy.com/v1/gifs/translate?api_key=ix7d37l86S4mTyWNzuEm7elI3OCfJatn&s=${winWords1[0] + ' ' + winWords2[0]}&rating=g`)
+        .then(d => d.json())
+        .then(data => {
+            endScreenImage.innerHTML = `<img src="${data.data.images.original.url}" />`;
+        });
+
+    const ul = document.createElement('ul');
+    let stars = 0;
+
+    stats.forEach(stat => {
+        const li = document.createElement('li');
+        li.innerText = `${stat.word} - ${stat.attempts} attempt${stat.attempts > 1 ? 's' : ''} ${stat.attempts === 1 ? '⭐️' : ''}`;
+
+        if (stat.attempts === 1) {
+            stars++;
+        }
+
+        ul.appendChild(li);
+    });
+
+    endStats.innerHTML = `<p>You've got ${stars} star${stars > 1 ? 's' : ''} out of ${stats.length}.</p>`;
+    endStats.appendChild(ul);
 }
 
 function rejected(input, correct) {
@@ -110,8 +159,7 @@ window.onbeforeunload = () => {
 };
 
 startBtn.addEventListener('click', () => {
-    gameScreen.classList.remove('hidden');
-    startScreen.classList.add('hidden');
+    changeScreen('game');
     start();
 });
 
