@@ -14,6 +14,7 @@ const endScreen = document.getElementById('end-screen');
 const endScreenImage = document.getElementById('end-image');
 const endStats = document.getElementById('end-stats');
 
+const GIPHY_API_KEY = 'ix7d37l86S4mTyWNzuEm7elI3OCfJatn';
 
 let wordsAvailable = [];
 let currentWord = null;
@@ -64,7 +65,7 @@ function win() {
     let winWords1 = ['petting', 'cuddling', 'cute', 'funny', 'interesting', 'adorable', 'small', 'baby', 'friendly'].sort(() => Math.random() - 0.5);
     let winWords2 = ['pet', 'animal', 'cat', 'bird', 'dog', 'unicorn'].sort(() => Math.random() - 0.5);
 
-    fetch(`https://api.giphy.com/v1/gifs/translate?api_key=ix7d37l86S4mTyWNzuEm7elI3OCfJatn&s=${winWords1[0] + ' ' + winWords2[0]}&rating=g`)
+    fetch(`https://api.giphy.com/v1/gifs/translate?api_key=${GIPHY_API_KEY}&s=${winWords1[0] + ' ' + winWords2[0]}&rating=g`)
         .then(d => d.json())
         .then(data => {
             endScreenImage.innerHTML = `<img src="${data.data.images.original.url}" />`;
@@ -96,7 +97,7 @@ function rejected(input, correct) {
     } else {
         helperText.innerHTML = '';
         input.split('').forEach((letter, idx) => {
-            helperText.innerHTML += (letter === correct[idx]) ? letter : `<u>${letter}</u>`;
+            helperText.innerHTML += (letter === correct[idx]) ? letter : `<span class='wrong-letter'>${letter}</span>`;
         });
     }
 

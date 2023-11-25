@@ -10,7 +10,6 @@ body {
 #helper {
     text-align: center;
     font-size: 30px;
-    color: red;
 }
 
 #history {
@@ -86,3 +85,10 @@ body {
     flex-direction: column;
     align-items: center;
 } 
+
+.wrong-letter {
+    color: red;
+    border-bottom: 2px dotted red;
+    display: inline-block;
+    position: relative;
+}
