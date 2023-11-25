@@ -122,7 +122,7 @@ function submitWord() {
         approved();
     } else {
         text = `${spellingInput.value} ❌`;
-        rejected(userInput, currentWord);
+        rejected(userInput, correctValue);
     }
 
     const li = document.createElement('li');
