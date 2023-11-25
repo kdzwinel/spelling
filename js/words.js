@@ -65,6 +65,23 @@ const words = {
         'Vertices',
         'Shapes',
         'Triangular'
+    ],
+    week11: [
+        'Reptile',
+        'Sharp',
+        'Spike',
+        'Venom',
+        'Venomous',
+        'Puff up',
+        'Scales',
+        'Mice',
+        'Colourful',
+        'Aluminium',
+        'Carbon',
+        'Diesel',
+        'Global warming',
+        'Copper',
+        'Smelting'
     ]
 };
 
