@@ -82,6 +82,23 @@ const words = {
         'Global warming',
         'Copper',
         'Smelting'
+    ],
+    week12: [
+        'Adaptations',
+        'Hump',
+        'Eyelashes',
+        'Foot',
+        'Feet',
+        'Leaf',
+        'Leaves',
+        'Underground',
+        'Tunnel',
+        'Enough',
+        'Arrays',
+        'Pattern',
+        'Funnel',
+        'Through',
+        'December'
     ]
 };
 
