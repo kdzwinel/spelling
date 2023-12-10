@@ -99,6 +99,24 @@ const words = {
         'Funnel',
         'Through',
         'December'
+    ],
+    week13: [
+        'Square',
+        'Triangle',
+        'Circle',
+        'Rectangle',
+        'Optical',
+        'Illusion',
+        'Multiply',
+        'Divide',
+        'Noun',
+        'Verb',
+        'Adjective',
+        'Light',
+        'Shadow',
+        'Blocked',
+        'Even',
+        'Odd'
     ]
 };
 
