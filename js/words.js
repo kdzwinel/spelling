@@ -117,6 +117,23 @@ const words = {
         'Blocked',
         'Even',
         'Odd'
+    ],
+    week14: [
+        'Patient',
+		'Impatient',
+		'Polite',
+		'Impolite',
+		'Afraid',
+		'Unafraid',
+		'Always',
+		'Usually',
+		'Sometimes',
+		'Never',
+		'Centimetre',
+		'Kilometre',
+		'Height',
+		'Width',
+		'Conclusion'
     ]
 };
 
