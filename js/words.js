@@ -134,6 +134,23 @@ const words = {
 		'Height',
 		'Width',
 		'Conclusion'
+    ],
+    week18: [
+        'Pencil holder',
+        'Planter',
+        'Collection',
+        'Collector',
+        'Invention',
+        'Inventor',
+        'Director',
+        'Direction',
+        'Blood vessels',
+        'Intestines',
+        'Stomach',
+        'Brain',
+        'Heart rate',
+        'Lungs',
+        'Nutrients'
     ]
 };
 
