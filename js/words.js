@@ -135,7 +135,7 @@ const words = {
 		'Width',
 		'Conclusion'
     ],
-    week18: [
+    week20: [
         'Pencil holder',
         'Planter',
         'Collection',
