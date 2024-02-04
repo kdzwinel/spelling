@@ -13,6 +13,7 @@ const helperText = document.getElementById('helper');
 const endScreen = document.getElementById('end-screen');
 const endScreenImage = document.getElementById('end-image');
 const endStats = document.getElementById('end-stats');
+const endNextRound = document.getElementById('end-next-round');
 
 const GIPHY_API_KEY = 'ix7d37l86S4mTyWNzuEm7elI3OCfJatn';
 
@@ -73,6 +74,7 @@ function win() {
 
     const ul = document.createElement('ul');
     let stars = 0;
+    let repeatWords = 0;
 
     stats.forEach(stat => {
         const li = document.createElement('li');
@@ -80,10 +82,18 @@ function win() {
 
         if (stat.attempts === 1) {
             stars++;
+        } else {
+            repeatWords++;
         }
 
         ul.appendChild(li);
     });
+
+    if (repeatWords === 0) {
+        endNextRound.style.display = 'none';
+    } else {
+        endNextRound.innerText = `Next Round (${repeatWords} words)`;
+    }
 
     endStats.innerHTML = `<p>You've got ${stars} star${stars > 1 ? 's' : ''} out of ${stats.length}.</p>`;
     endStats.appendChild(ul);
@@ -92,7 +102,7 @@ function win() {
 function rejected(input, correct) {
     rejectedCount++;
 
-    if (rejectedCount >= 3) {
+    if (rejectedCount >= 2) {
         helperText.innerText = `correct spelling is: "${currentWord}"`;
     } else {
         helperText.innerHTML = '';
@@ -143,9 +153,20 @@ spellingInput.addEventListener('keydown', (e) => {
 
 playSoundBtn.addEventListener('click', () => speak(currentWord));
 
-function start() {
-    wordsAvailable = createSet(setPicker.value);
+endNextRound.addEventListener('click', () => {
+    // only words that were not provided correctly on first attempt
+    start(stats.filter(s => s.attempts > 1).map(s => s.word));
+});
 
+function start(words) {
+    changeScreen('game');
+
+    currentWord = null;
+    rejectedCount = 0;
+    stats.length = 0;
+    wordsAvailable = words;
+
+    historyList.innerHTML = '';
     spellingInput.focus();
 
     loadWord();
@@ -160,8 +181,7 @@ window.onbeforeunload = () => {
 };
 
 startBtn.addEventListener('click', () => {
-    changeScreen('game');
-    start();
+    start(createSet(setPicker.value));
 });
 
 getSets().forEach(set => {
