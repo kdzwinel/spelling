@@ -151,6 +151,23 @@ const words = {
         'Heart rate',
         'Lungs',
         'Nutrients'
+    ],
+    week21: [
+        'complained',
+        'triceratops',
+        'pliers',
+        'wires',
+        'tools',
+        'jumperoo',
+        'pygmy goat',
+        'bicycles',
+        'municipal',
+        'shred',
+        'welder',
+        'thundered',
+        'tips',
+        'spits',
+        'prehistoric'
     ]
 };
 
