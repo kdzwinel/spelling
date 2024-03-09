@@ -86,6 +86,16 @@ body {
     align-items: center;
 } 
 
+.button-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+#end-next-round {
+    font-size: 20px;
+}
+
 .wrong-letter {
     color: red;
     border-bottom: 2px dotted red;

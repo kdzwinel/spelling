@@ -168,6 +168,23 @@ const words = {
         'tips',
         'spits',
         'prehistoric'
+    ],
+    week22: [
+        'four-story building',
+        'scientists',
+        'alike',
+        'existed',
+        'fossils',
+        'million',
+        'nest',
+        'studied',
+        'timeline',
+        'instruction',
+        'dinosaur',
+        'footprints',
+        'omnivore',
+        'carnivore',
+        'herbivore'
     ]
 };
 
