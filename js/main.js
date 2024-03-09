@@ -15,6 +15,8 @@ const endScreenImage = document.getElementById('end-image');
 const endStats = document.getElementById('end-stats');
 const endNextRound = document.getElementById('end-next-round');
 
+const Diff = new diff();
+
 const GIPHY_API_KEY = 'ix7d37l86S4mTyWNzuEm7elI3OCfJatn';
 
 let wordsAvailable = [];
@@ -106,8 +108,16 @@ function rejected(input, correct) {
         helperText.innerText = `correct spelling is: "${currentWord}"`;
     } else {
         helperText.innerHTML = '';
-        input.split('').forEach((letter, idx) => {
-            helperText.innerHTML += (letter === correct[idx]) ? letter : `<span class='wrong-letter'>${letter}</span>`;
+        const diff = Diff.main(input, correct);
+
+        diff.forEach(([type, string]) => {
+            if (type === -1) {
+                helperText.innerHTML += `<del>${string}</del>`;
+            } else if (type === 1) {
+                helperText.innerHTML += `<ins>&#63;</ins>`;
+            } else {
+                helperText.innerHTML += `<span>${string}</span>`;
+            }
         });
     }
 
