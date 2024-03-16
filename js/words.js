@@ -185,6 +185,23 @@ const words = {
         'omnivore',
         'carnivore',
         'herbivore'
+    ],
+    week23: [
+        'Weapon',
+        'Huge',
+        'Grown-up',
+        'Balance',
+        'Perhaps',
+        'Blank',
+        'Complement',
+        'Mentally',
+        'Food chain',
+        'Consumer',
+        'Energy',
+        'Producers',
+        'Grasshopper',
+        'Hawk',
+        'Could',
     ]
 };
 
