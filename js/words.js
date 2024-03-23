@@ -202,6 +202,23 @@ const words = {
         'Grasshopper',
         'Hawk',
         'Could',
+    ],
+    week24: [
+        'heavy',
+        'should',
+        'discoveries',
+        'information',
+        'both',
+        'language',
+        'feathers',
+        'ninety-nine',
+        'biggest',
+        'graphs',
+        'data',
+        'axes',
+        'axis',
+        'bar chart',
+        'carroll diagram'
     ]
 };
 
