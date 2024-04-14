@@ -219,6 +219,23 @@ const words = {
         'axis',
         'bar chart',
         'carroll diagram'
+    ],
+    week25: [
+        'multiplication',
+        'division',
+        'remainder',
+        'quotient',
+        'dividend',
+        'divisor',
+        'riddles',
+        'puzzles',
+        'codes',
+        'neighbour',
+        'Easter',
+        'stripes',
+        'spots',
+        'without',
+        'different'
     ]
 };
 
