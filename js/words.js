@@ -236,6 +236,22 @@ const words = {
         'spots',
         'without',
         'different'
+    ],
+    week26: [
+        'climbed',
+        'travelled',
+        'walked',
+        'touched',
+        'mountain',
+        'country',
+        'bravely',
+        'whisper',
+        'tossed',
+        'food chain',
+        'primary',
+        'secondary',
+        'tertiary',
+        'producer'
     ]
 };
 
