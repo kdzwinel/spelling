@@ -252,6 +252,23 @@ const words = {
         'secondary',
         'tertiary',
         'producer'
+    ],
+    week27: [
+        'heavy',
+        'should',
+        'discoveries',
+        'information',
+        'both',
+        'language',
+        'feathers',
+        'ninety-nine',
+        'biggest',
+        'graphs',
+        'data',
+        'axes',
+        'axis',
+        'bar chart',
+        'carroll diagram'
     ]
 };
 
