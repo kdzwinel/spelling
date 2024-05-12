@@ -254,21 +254,21 @@ const words = {
         'producer'
     ],
     week27: [
-        'heavy',
-        'should',
-        'discoveries',
-        'information',
-        'both',
-        'language',
-        'feathers',
-        'ninety-nine',
-        'biggest',
-        'graphs',
-        'data',
-        'axes',
-        'axis',
-        'bar chart',
-        'carroll diagram'
+        'fair',
+        'solution',
+        'expensive',
+        'delicious',
+        'pay',
+        'enjoying',
+        'message',
+        'decode',
+        'caught',
+        'messenger',
+        'Julius Ceasar',
+        'forcemeter',
+        'standard units',
+        'newton',
+        'constitution'
     ]
 };
 
