@@ -269,6 +269,23 @@ const words = {
         'standard units',
         'newton',
         'constitution'
+    ],
+    week33: [
+        'muscles',
+        'together',
+        'ankle',
+        'spine',
+        'elbow',
+        'knee',
+        'skull',
+        'wrist',
+        'blood vessels',
+        'breathe',
+        'exercise',
+        'friction',
+        'surface',
+        'grip',
+        'measurements'
     ]
 };
 
