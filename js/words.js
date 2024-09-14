@@ -286,7 +286,30 @@ const words = {
         'surface',
         'grip',
         'measurements'
-    ]
+    ],
+    // new year
+    week34: [
+        'keen',
+        'community',
+        'aunt',
+        'cousin',
+        'both',
+        'lively',
+        'brilliant',
+        'caring',
+        'linear',
+        'sequence',
+        'difference',
+        'rule',
+        'frame',
+        'jaw',
+        'rib cage',
+        'skull',
+        'skeleton',
+        'spine',
+        'bones',
+        'neighbourhood'
+    ],
 };
 
 function createSet(setName, random = true) {
