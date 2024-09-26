@@ -310,6 +310,28 @@ const words = {
         'bones',
         'neighbourhood'
     ],
+    week35: [
+        "leaflet",
+        "hospital",
+        "charity",
+        "raise money",
+        "event",
+        "imperative",
+        "adverb",
+        "thousand",
+        "million",
+        "digit",
+        "temperature",
+        "treasure",
+        "follow",
+        "surgery",
+        "hidden",
+        "groan",
+        "contract",
+        "relax",
+        "attach",
+        "alliteration"
+    ]
 };
 
 function createSet(setName, random = true) {
