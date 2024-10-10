@@ -331,6 +331,28 @@ const words = {
         "relax",
         "attach",
         "alliteration"
+    ],
+    week36: [
+        "freezing",
+        "icy",
+        "dry",
+        "huge",
+        "wide",
+        "wet",
+        "beautiful",
+        "mountains",
+        "humid",
+        "cool",
+        "warm",
+        "landscape",
+        "rainforest",
+        "timetable",
+        "leap year",
+        "interval",
+        "identify",
+        "vertebrate",
+        "invertebrate",
+        "exoskeleton"
     ]
 };
 
