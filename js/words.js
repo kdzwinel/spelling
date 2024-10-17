@@ -353,6 +353,27 @@ const words = {
         "vertebrate",
         "invertebrate",
         "exoskeleton"
+    ],
+    week37: [
+        "germs",
+        "infect",
+        "instructions",
+        "medicines",
+        "prevent",
+        "explore",
+        "orbit",
+        "support",
+        "discover",
+        "poisonous",
+        "Mercury",
+        "Venus",
+        "Earth",
+        "Mars",
+        "Jupiter",
+        "Saturn",
+        "Uranus",
+        "Neptune",
+        "Pluto"
     ]
 };
 
