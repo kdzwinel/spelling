@@ -374,6 +374,28 @@ const words = {
         "Uranus",
         "Neptune",
         "Pluto"
+    ],
+    week38: [
+        "natural",
+        "lightning",
+        "northern lights",
+        "constellation",
+        "rainbow",
+        "sunset",
+        "satellite",
+        "telescope",
+        "space shuttle",
+        "rover",
+        "compose",
+        "decompose",
+        "whole",
+        "special",
+        "bright",
+        "astronaut",
+        "space",
+        "difference",
+        "regroup",
+        "technology"
     ]
 };
 
