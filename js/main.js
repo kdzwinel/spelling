@@ -1,6 +1,9 @@
 const startScreen = document.getElementById('start-screen');
 const startBtn = document.getElementById('start');
 const setPicker = document.getElementById('pick-set');
+const voicePicker = document.getElementById('pick-voice');
+const changeVoice = document.getElementById('change-voice');
+const testVoice = document.getElementById('test-voice');
 
 const gameScreen = document.getElementById('game-screen');
 const spellingInput = document.getElementById('spelling');
@@ -200,4 +203,24 @@ getSets().forEach(set => {
     option.innerText = `${set.name} (${set.size} words)`;
 
     setPicker.prepend(option);
+});
+
+changeVoice.addEventListener('click', () => {
+    voicePicker.innerText = '';
+
+    getVoices().forEach(voice => {
+        const option = document.createElement('option');
+        option.value = voice.name;
+        option.innerText = `${voice.name} (${voice.lang})`;
+    
+        voicePicker.prepend(option);
+    });
+});
+
+voicePicker.addEventListener('change', () => {
+    voiceTypes.read = voicePicker.value;
+});
+
+testVoice.addEventListener('click', () => {
+    speak('Ala is great at spelling!');
 });

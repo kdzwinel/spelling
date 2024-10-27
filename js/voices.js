@@ -1,8 +1,12 @@
 const voiceTypes = {
-    'read': 'Samantha',
-    'correct': 'Bubbles',
-    'finish': 'Cellos'
+    read: 'Samantha',
+    correct: 'Bubbles',
+    finish: 'Cellos'
 };
+
+function getVoices() {
+    return speechSynthesis.getVoices().filter(v => v.lang === 'en-US' || v.lang === 'en-GB');
+}
 
 function getVoice(type) {
     let voice = speechSynthesis.getVoices().filter(v => v.name === voiceTypes[type]);
@@ -16,7 +20,7 @@ function getVoice(type) {
 
 function speak(text, voiceType ='read') {
     let voice = getVoice(voiceType);
- 
+
     //speechSynthesis.cancel();
     const utterance = new SpeechSynthesisUtterance(text);
     utterance.voice = voice;
