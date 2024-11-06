@@ -396,6 +396,27 @@ const words = {
         "difference",
         "regroup",
         "technology"
+    ],
+    week39: [
+        "balcony",
+        "roof",
+        "bricks",
+        "wood",
+        "wool",
+        "chimney",
+        "ecological",
+        "solar panels",
+        "detached house",
+        "stilt house",
+        "yurt",
+        "bungalow",
+        "apartment",
+        "canal boat",
+        "energy",
+        "predict",
+        "movement",
+        "underground",
+        "environment"
     ]
 };
 
