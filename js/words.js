@@ -417,6 +417,28 @@ const words = {
         "movement",
         "underground",
         "environment"
+    ],
+    week40: [
+        "multiply",
+        "factors",
+        "brass knob",
+        "porthole",
+        "carpeted",
+        "tunnel",
+        "fond of",
+        "meadow",
+        "pegs",
+        "neighbour",
+        "adventure",
+        "well-to-do",
+        "cellar",
+        "polished",
+        "respectable",
+        "tiled",
+        "oozy",
+        "destroy",
+        "appliance",
+        "hobbit"
     ]
 };
 
