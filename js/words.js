@@ -439,6 +439,27 @@ const words = {
         "destroy",
         "appliance",
         "hobbit"
+    ],
+    week41: [
+        "papaya",
+        "nutritious",
+        "grow",
+        "container",
+        "chocolate",
+        "roast",
+        "crush",
+        "machete",
+        "paste",
+        "vanilla",
+        "cocoa beans",
+        "herbivore",
+        "omnivore",
+        "carnivore",
+        "food chain",
+        "predator",
+        "prey",
+        "symmetry",
+        "shape"
     ]
 };
 
