@@ -197,10 +197,14 @@ startBtn.addEventListener('click', () => {
     start(createSet(setPicker.value));
 });
 
-getSets().forEach(set => {
+getSets().forEach((set, idx, array) => {
     const option = document.createElement('option');
     option.value = set.name;
     option.innerText = `${set.name} (${set.size} words)`;
+
+    if(array.length - 1 === idx) {
+        option.setAttribute("selected", "selected");
+    }
 
     setPicker.prepend(option);
 });

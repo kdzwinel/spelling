@@ -460,6 +460,28 @@ const words = {
         "prey",
         "symmetry",
         "shape"
+    ],
+    week42: [
+        "rinse",
+        "yoghurt",
+        "ground",
+        "spiky",
+        "smooth",
+        "juicy",
+        "meadow",
+        "landscape",
+        "valley",
+        "steep cliffs",
+        "whirlpool",
+        "muddy",
+        "generous",
+        "greedy",
+        "horizontal",
+        "vertical",
+        "symmetrical",
+        "pour",
+        "property",
+        "powder"
     ]
 };
 
