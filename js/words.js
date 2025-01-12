@@ -482,6 +482,23 @@ const words = {
         "pour",
         "property",
         "powder"
+    ],
+    week43: [
+        "character",
+        "dilemma",
+        "title",
+        "setting",
+        "detective",
+        "solve a crime",
+        "possession",
+        "danger",
+        "chemical reaction",
+        "solidify",
+        "melt",
+        "react",
+        "fraction",
+        "numerator",
+        "denominator"
     ]
 };
 
