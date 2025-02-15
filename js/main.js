@@ -9,6 +9,7 @@ const gameScreen = document.getElementById('game-screen');
 const spellingInput = document.getElementById('spelling');
 const submitBtn = document.getElementById('submit');
 const playSoundBtn = document.getElementById('play-sound');
+const showImageBtn = document.getElementById('show-image');
 const counterText = document.getElementById('counter');
 const historyList = document.getElementById('history');
 const helperText = document.getElementById('helper');
@@ -127,8 +128,7 @@ function rejected(input, correct) {
             }
         });
 
-        imageForWord(currentWord)
-            .then(url => wordScreenImage.innerHTML = `<img src="${url}" />`);
+        showImageBtn.removeAttribute('disabled');
     }
 
     spellingInput.classList.add('wrong');
@@ -140,6 +140,7 @@ function loadWord() {
 
     console.log('word: ', currentWord);
 
+    showImageBtn.setAttribute('disabled', 'disabled');
     wordScreenImage.innerHTML = '';
 
     speak(currentWord);
@@ -162,6 +163,13 @@ function submitWord() {
     li.innerText = text;
     historyList.prepend(li);
 }
+
+showImageBtn.addEventListener('click', () => {
+    if (rejectedCount > 0) {
+        imageForWord(currentWord)
+            .then(url => wordScreenImage.innerHTML = `<img src="${url}" />`);
+    }
+});
 
 submitBtn.addEventListener('click', () => submitWord());
 
