@@ -126,10 +126,10 @@ function rejected(input, correct) {
                 helperText.innerHTML += `<span>${string}</span>`;
             }
         });
-    }
 
-    imageForWord(currentWord)
-        .then(url => wordScreenImage.innerHTML = `<img src="${url}" />`);
+        imageForWord(currentWord)
+            .then(url => wordScreenImage.innerHTML = `<img src="${url}" />`);
+    }
 
     spellingInput.classList.add('wrong');
     speak(`Try again. The word is: ${currentWord}.`);
