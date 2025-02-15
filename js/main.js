@@ -12,6 +12,7 @@ const playSoundBtn = document.getElementById('play-sound');
 const counterText = document.getElementById('counter');
 const historyList = document.getElementById('history');
 const helperText = document.getElementById('helper');
+const wordScreenImage = document.getElementById('word-image');
 
 const endScreen = document.getElementById('end-screen');
 const endScreenImage = document.getElementById('end-image');
@@ -64,6 +65,12 @@ function approved() {
     spellingInput.value = '';
 }
 
+function imageForWord(word) {
+    return fetch(`https://api.giphy.com/v1/gifs/translate?api_key=${GIPHY_API_KEY}&s=${word}&rating=g`)
+        .then(d => d.json())
+        .then(data => data.data.images.original.url);
+}
+
 function win() {
     speak('Good work Ala!', 'finish');
     changeScreen('end');
@@ -71,11 +78,8 @@ function win() {
     let winWords1 = ['petting', 'cuddling', 'cute', 'funny', 'interesting', 'adorable', 'small', 'baby', 'friendly'].sort(() => Math.random() - 0.5);
     let winWords2 = ['pet', 'animal', 'cat', 'bird', 'dog', 'unicorn'].sort(() => Math.random() - 0.5);
 
-    fetch(`https://api.giphy.com/v1/gifs/translate?api_key=${GIPHY_API_KEY}&s=${winWords1[0] + ' ' + winWords2[0]}&rating=g`)
-        .then(d => d.json())
-        .then(data => {
-            endScreenImage.innerHTML = `<img src="${data.data.images.original.url}" />`;
-        });
+    imageForWord(winWords1[0] + ' ' + winWords2[0])
+        .then(url => endScreenImage.innerHTML = `<img src="${url}" />`);
 
     const ul = document.createElement('ul');
     let stars = 0;
@@ -124,6 +128,9 @@ function rejected(input, correct) {
         });
     }
 
+    imageForWord(currentWord)
+        .then(url => wordScreenImage.innerHTML = `<img src="${url}" />`);
+
     spellingInput.classList.add('wrong');
     speak(`Try again. The word is: ${currentWord}.`);
 }
@@ -132,6 +139,8 @@ function loadWord() {
     currentWord = wordsAvailable.pop();
 
     console.log('word: ', currentWord);
+
+    wordScreenImage.innerHTML = '';
 
     speak(currentWord);
 }

@@ -49,6 +49,10 @@ body {
     border: solid black 3px;
 }
 
+#word-image img {
+    max-width: 150px;
+}
+
 @keyframes flashred {
     0% {
         border-color: black;
